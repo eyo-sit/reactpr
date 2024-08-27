@@ -18,7 +18,7 @@ export default  function csr() {
 	return (
 		<main>
 			<h1>Client side generated</h1>
-			{todos.map((todo) => (
+			{todos.map((todo : any) => (
 				<p key={todo.id}>{todo.title}</p>
 			))}
 		</main>
