@@ -11,7 +11,7 @@ export default async function Home() {
 	return (
 		<main>
 			<h1>Statically generated</h1>
-			{todos.map((todo) => (
+			{todos.map((todo: any) => (
 				<p key={todo.id}>{todo.title}</p>
 			))}
 		</main>

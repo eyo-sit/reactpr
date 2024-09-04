@@ -5,22 +5,17 @@ import{useState, useEffect} from "react"
 
 
 export default  function csr() {
-	const [todos, setTodos] = useState([])
-
-	useEffect(() => {
-		const fetchTodos = async ()=> {
-			const res = await fetch("https://jsonplaceholder.typicode.com/todos")
-			const data = await res.json()
-			setTodos(data)
-		}
-		fetchTodos()
-	}, [])
+	const [message, setMessage] = useState([])
+	const fetchMessage = async () => {
+		const response = await fetch("/api/todos")
+		const message = await response.json()	
+		console.log(message)
+		setMessage(message)
+	}
+	
 	return (
 		<main>
-			<h1>Client side generated</h1>
-			{todos.map((todo : any) => (
-				<p key={todo.id}>{todo.title}</p>
-			))}
+			<h1 onClick={ fetchMessage }>Client side generated</h1>
 		</main>
   	)
 }
